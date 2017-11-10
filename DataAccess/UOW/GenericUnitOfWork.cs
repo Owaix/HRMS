@@ -19,7 +19,7 @@ namespace DataAccess.UOW
         //    entities = new QMSContext();
         //}
 
-        public GenericUnitOfWork(QMSContext _qmsContext)
+        public GenericUnitOfWork(HrContext _qmsContext)
         {
             entities = _qmsContext;
         }

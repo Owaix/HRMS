@@ -18,6 +18,6 @@ namespace DataAccess.Models
         public String Degree { get; set; }
         public String Year { get; set; }
         public Nullable<int> ImageId { get; set; }
-        public HttpPostedFileWrapper ImageFile { get; set; }
+        //       public HttpPostedFileWrapper ImageFile { get; set; }
     }
 }
