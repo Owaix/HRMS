@@ -1,0 +1,36 @@
+﻿@model WebApplication1.ViewModel.EmployeeVM
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">@Model.Name</h4>
+        </div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+            <dd>@Html.DisplayFor(model => model.Name)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Department)</dt>
+            <dd>@Html.DisplayFor(model => model.Department)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Designation)</dt>
+            <dd>@Html.DisplayFor(model => model.Designation)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Salary)</dt>
+            <dd>@Html.DisplayFor(model => model.Salary)</dd>
+        </dl>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -8,6 +8,12 @@ using System.Web;
 
 namespace Common.Extensions
 {
+    public static class SqlOperation
+    {
+        public static String Insert { get; set; }
+        public static String Delete { get; set; }
+        public static String Select { get; set; }
+    }
 
     public static class EntityExtensions
     {

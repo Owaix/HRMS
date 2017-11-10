@@ -1,0 +1,280 @@
+﻿@using Microsoft.AspNet.Identity;
+@using System.Web.UI.WebControls;
+
+@model WebApplication1.ViewModel.EmployeeVM
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @User.Identity.GetUserId();
+
+    var domainsList = new SelectList(new[]
+            {
+                new SelectListItem { Text = "Male", Value = "1", Selected = true },
+                new SelectListItem { Text = "Female", Value = "2"},
+            }, "Value", "Text");
+}
+
+<style>
+    th {
+        text-align: center;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <!--notification start-->
+        <section class="panel">
+            <header class="panel-heading">
+                Basic Info
+            </header>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel">
+                            <header class="panel-heading tab-bg-primary ">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#home">Personal</a>
+                                    </li>
+                                    <li class="">
+                                        <a data-toggle="tab" href="#about">Academic</a>
+                                    </li>
+                                    <li class="">
+                                        <a data-toggle="tab" href="#profile">Profile</a>
+                                    </li>
+                                    <li class="">
+                                        <a data-toggle="tab" href="#contact">Contact</a>
+                                    </li>
+                                </ul>
+                            </header>
+                            <div class="panel-body">
+                                <div class="tab-content">
+                                    <div id="home" class="tab-pane active">
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">First Name:</label>
+                                                    <input type="text" class="form-control" id="txtFirst">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Father Name:</label>
+                                                    <input type="text" class="form-control" id="txtMidle">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Sur Name:</label>
+                                                    <input type="text" class="form-control" id="txtLAst">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Gender:</label>
+                                                    @Html.DropDownListFor(x => x.Name, domainsList, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Date Of Birth:</label>
+                                                    <input type="text" class="form-control" id="txtDOB">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">CNIC:</label>
+                                                    <input type="text" class="form-control" id="txtCNIC">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Religion:</label>
+                                                    <input type="text" class="form-control" id="txtReligion">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Domicile:</label>
+                                                    <input type="text" class="form-control" id="txtDomicile">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="usr">Address:</label>
+                                                    <input type="text" class="form-control" id="txtAddress">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">State:</label>
+                                                    <input type="text" class="form-control" id="txtState">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Country:</label>
+                                                    @*@Html.DropDownListFor(x => x.Country, Model.Country as SelectList, new { @class = "form-control" })*@
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Postal Code:</label>
+                                                    <input type="text" class="form-control" id="txtPostal">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                            <div class="col-md-2">
+                                                @*<img style="border:1px solid;width:200px" src="~/Img/avatar1.jpg" />*@
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Home Phone:</label>
+                                                    <input type="text" class="form-control" id="txtPhone">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Mobile Phone:</label>
+                                                    <input type="text" class="form-control" id="txtMobile">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Email Address:</label>
+                                                    <input type="text" class="form-control" id="txtMail">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="button" class="btn btn-success btn-group-lg" id="btnSubmit" value="Submit" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="about" class="tab-pane">
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">First Name:</label>
+                                                    <input type="text" class="form-control" id="txtFirst">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Father Name:</label>
+                                                    <input type="text" class="form-control" id="txtMidle">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Sur Name:</label>
+                                                    <input type="text" class="form-control" id="txtLAst">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Gender:</label>
+                                                    @Html.DropDownListFor(x => x.Name, domainsList, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div id="TableRow" class="row">
+                                            <div class="col-md-12">
+                                                <table id="tbl" class="table">
+                                                    <tr>
+                                                        <th>Institute</th>
+                                                        <th>Degree</th>
+                                                        <th>Year</th>
+                                                        <th>Upload Marks/Pass Certificate</th>
+                                                        <th><a id="lnkAdd" class="btn btn-primary btn-md" href="#"><i class="fa fa-plus"></i>  Add Row</a></th>
+                                                    </tr>
+                                                    <tr id="trbdy">
+                                                        <td><input type="text" class="form-control txtIns" id="txtIns1"></td>
+                                                        <td><input type="text" class="form-control txtDeg" id="txtDeg1"></td>
+                                                        <td><input type="text" class="form-control txtYear" id="txtYear1"></td>
+                                                        <td><input type="file" class="form-control fileCert" id="fileCert"></td>
+                                                        @*<td><a class="btn btn-danger btn-sm" href="#"><i class="icon_close_alt2"></i></a></td>*@
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a id="lnkSave" class="btn btn-success btn-lg" href="#"><i class="fa fa-save"></i>&nbspSave</a>
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="profile" class="tab-pane">Profile</div>
+                                    <div id="contact" class="tab-pane">Contact</div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="~/Scripts/EmployeeNew.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+        var data = new FormData();
+        data.append("Name", "OWais");
+        data.append("Id", 23);
+        $.ajax({
+            type: "POST",
+            url: "/Employee/ActionMethod",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                alert(response.d);
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+
+      
+        var Uploadimage = function () {
+            var file = $("#imageBrowes").get(0).files;
+            var data = new FormData;
+            data.append("ImageFile", file[0]);
+            data.append("ProductName", "SamsungA8");
+            $.ajax({
+                type: "Post",
+                url: "/Test/ImageUpload",
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    ClearPreview();
+                    $("#uploadedImage").append('<img src="/UploadedImage/' + response + '" class="img-responsive thumbnail"/>');
+                }
+            });
+        }
+
+    });
+</script>

@@ -1,0 +1,32 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<WebApplication1.ViewModel.EmployeeVM>
+
+
+@{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Designation</td>
+            <td>@item.Department</td>
+            <td>@item.Salary</td>
+            <td>
+                <i class="btn-group">
+                    <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                    <a class="btn btn-success" id="lnkEdit" onclick="AddEditEmployee(@item.Id)"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Employee", new { id = item.Id })"><i class="icon_close_alt2"></i></a>
+                </i>
+            </td>
+        </tr>
+    }
+}
+<script>
+    var AddEditEmployee = function (employeeId) {
+        var url = "/Employee/Edit?Id=" + employeeId;
+        $("#modelBody").load(url, function () {
+            $("#myModal").modal("show");
+        })
+    }
+</script>
