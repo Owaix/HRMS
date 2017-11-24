@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHRMS", "EHRMS\EHRMS.csproj", "{B9C5B03E-8C6A-44A0-9269-69227363CFDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{10F77930-F92A-4478-AEB8-0E96C8649C17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{3EF6840D-7C99-483E-A657-EA5845DF3834}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9C5B03E-8C6A-44A0-9269-69227363CFDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9C5B03E-8C6A-44A0-9269-69227363CFDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9C5B03E-8C6A-44A0-9269-69227363CFDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9C5B03E-8C6A-44A0-9269-69227363CFDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10F77930-F92A-4478-AEB8-0E96C8649C17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F77930-F92A-4478-AEB8-0E96C8649C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10F77930-F92A-4478-AEB8-0E96C8649C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10F77930-F92A-4478-AEB8-0E96C8649C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EF6840D-7C99-483E-A657-EA5845DF3834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF6840D-7C99-483E-A657-EA5845DF3834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF6840D-7C99-483E-A657-EA5845DF3834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF6840D-7C99-483E-A657-EA5845DF3834}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
