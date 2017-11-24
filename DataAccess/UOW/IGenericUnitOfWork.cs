@@ -9,6 +9,6 @@ namespace DataAccess.UOW
 
         void Dispose();
         IRepository<T> Repository<T>() where T : BaseEntity;
-        void SaveChanges();
+        void Save();
     }
 }

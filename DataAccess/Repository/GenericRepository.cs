@@ -6,7 +6,7 @@ using System.Data;
 
 namespace DataAccess.Repository
 {
-    class GenericRepository<T> : IRepository<T> where T : BaseEntity
+   public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
         private DbContext entities = null;
         IDbSet<T> _objectSet;

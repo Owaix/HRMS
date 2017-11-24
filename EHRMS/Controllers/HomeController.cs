@@ -3,7 +3,6 @@ using DataAccess;
 using DataAccess.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Service;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,19 +10,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.UI;
-using WebApplication1.Models;
-using WebApplication1.ViewModel;
-
+using EHRMS.Models;
+using EHRMS.ViewModel;
+using DataAccess.Repository;
+using DataAccess.UOW;
 
 namespace EHRMS.Controllers
 {
     public class HomeController : Controller
     {
         UserManager<ApplicationUser> _user;
-        private UnitOfWork unitOfWork;
-        private Repository<FeatureAccessConfig> FeatureConfig;
-        private Repository<Roles> RolRep;
-        private Repository<Features> FeaRep;
+        private GenericUnitOfWork unitOfWork;
+        private GenericRepository<FeatureAccessConfig> FeatureConfig;
+        private GenericRepository<Roles> RolRep;
+        private GenericRepository<Features> FeaRep;
         List<ExcelClient> ClientsList = new List<ExcelClient>
             {
                //  new ExcelClient ( "Adam",  "Bielecki",  DateTime.ParseExact("22/05/1986"),       "adamb@example.com" ),
@@ -33,7 +33,7 @@ namespace EHRMS.Controllers
         public HomeController(UserManager<ApplicationUser> user)
         {
             _user = user;
-            unitOfWork = new UnitOfWork(new HrContext());
+            unitOfWork = new GenericUnitOfWork(new HrContext());
             RolRep = unitOfWork.Repository<Roles>();
             FeaRep = unitOfWork.Repository<Features>();
             FeatureConfig = unitOfWork.Repository<FeatureAccessConfig>();
@@ -89,7 +89,7 @@ namespace EHRMS.Controllers
         {
             for (int i = 1; i < FeatureRole.Feature.Length; i++)
             {
-                var FRcon = FeatureConfig.FindById(x => x.Feature_Id == FeatureRole.Feature[i] && x.Role_Id == FeatureRole.Role[i]).FirstOrDefault();
+                var FRcon = FeatureConfig.FindBy(x => x.Feature_Id == FeatureRole.Feature[i] && x.Role_Id == FeatureRole.Role[i]).FirstOrDefault();
                 if (FRcon != null)
                 {
                     FRcon.Feature_Id = FeatureRole.Feature[i];

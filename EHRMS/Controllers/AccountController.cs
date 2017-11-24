@@ -66,7 +66,7 @@ namespace EHRMS.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult Login(String UserName, String Password)
         {
-            return Json(data : UserName );
+            return Json(data: UserName);
         }
 
         //
@@ -162,9 +162,7 @@ namespace EHRMS.Controllers
                 var user = new ApplicationUser
                 {
                     UserName = model.Email,
-                    Email = model.Email,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName
+                    Email = model.Email
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

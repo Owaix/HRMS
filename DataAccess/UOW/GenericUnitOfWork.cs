@@ -37,7 +37,7 @@ namespace DataAccess.UOW
             return repo;
         }
 
-        public void SaveChanges()
+        public void Save()
         {
             entities.SaveChanges();
         }

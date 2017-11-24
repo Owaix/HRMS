@@ -1,34 +1,35 @@
-﻿using Service;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using AutoMapper;
 using System.Web.Mvc;
-using WebApplication1.ViewModel;
+using EHRMS.ViewModel;
 using System.Linq;
 using Common;
 using DataAccess.Models;
+using DataAccess.Repository;
 using DataAccess;
 using PagedList;
 using System.IO;
 using System.Web.UI;
+using DataAccess.UOW;
 
 namespace EHRMS.Controllers
 {
     public class EmployeeController : Controller
     {
         // HRDbContext db = new HRDbContext();
-        private Repository<Employee> EmpRep;
-        private UnitOfWork unitOfWork;
+        private GenericRepository<Employee> EmpRep;
+        private GenericUnitOfWork unitOfWork;
 
         public EmployeeController()
         {
-            unitOfWork = new UnitOfWork(new HrContext());
+            unitOfWork = new GenericUnitOfWork(new HrContext());
             EmpRep = unitOfWork.Repository<Employee>();
         }
 
         public ActionResult Index(int? page)
         {
-            var item = EmpRep.FindById(x => x.IsActive == false).ToList();
+            var item = EmpRep.FindBy(x => x.IsActive == false).ToList();
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
             return View(items.ToPagedList(page ?? 1, 10));
         }
@@ -36,7 +37,7 @@ namespace EHRMS.Controllers
         public ActionResult Index(int IsTrue)
         {
             int? page = null;
-            var item = EmpRep.FindById(x => x.IsActive == (IsTrue == 1 ? true : false)).ToList();
+            var item = EmpRep.FindBy(x => x.IsActive == (IsTrue == 1 ? true : false)).ToList();
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
             return PartialView("_EmpList", items.ToPagedList(page ?? 1, 10));
         }
@@ -44,7 +45,7 @@ namespace EHRMS.Controllers
         [HttpPost]
         public ActionResult SearchList(String name)
         {
-            var item = EmpRep.FindById(x => x.Name == name).ToList();
+            var item = EmpRep.FindBy(x => x.Name == name).ToList();
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
             return View("Index", items.ToPagedList(1, 10));
         }
@@ -110,7 +111,7 @@ namespace EHRMS.Controllers
         }
         public ActionResult Edit(int? id)
         {
-            var Emp = EmpRep.FindById(x => x.Id == id).FirstOrDefault();
+            var Emp = EmpRep.FindBy(x => x.Id == id).FirstOrDefault();
             var items = Mapper.Map<EmployeeVM>(Emp);
             return PartialView(items);
         }

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Security.Principal;
 using System.Web.Security;
-using Web.Common;
-using Web.CustomMembership;
-using Web.ViewModels.Permission;
+using Common;
 using System.Collections.Generic;
 using System.EnterpriseServices;
 
